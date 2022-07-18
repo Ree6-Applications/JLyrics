@@ -31,6 +31,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Document.OutputSettings;
 import org.jsoup.nodes.Element;
+import org.jsoup.safety.Safelist;
 import org.jsoup.safety.Whitelist;
 
 /**
@@ -42,7 +43,7 @@ public class LyricsClient
     private final Config config = ConfigFactory.load();
     private final HashMap<String, Lyrics> cache = new HashMap<>();
     private final OutputSettings noPrettyPrint = new OutputSettings().prettyPrint(false);
-    private final Whitelist newlineWhitelist = Whitelist.none().addTags("br", "p");
+    private final Safelist newlineWhitelist = Safelist.none().addTags("br", "p");
     private final Executor executor;
     private final String defaultSource, userAgent;
     private final int timeout;
@@ -144,15 +145,20 @@ public class LyricsClient
                         doc = connection.get();
                     
                     Element urlElement = doc.selectFirst(select);
+
+                    if(urlElement == null)
+                        return null;
+
                     String url;
                     if(jsonSearch)
                         url = urlElement.text();
                     else
                         url = urlElement.attr("abs:href");
-                    if(url==null || url.isEmpty())
+                    if(url.isEmpty())
                         return null;
                     doc = Jsoup.connect(url).userAgent(userAgent).timeout(timeout).get();
-                    Lyrics lyrics = new Lyrics(doc.selectFirst(titleSelector).ownText(), 
+
+                    Lyrics lyrics = new Lyrics(doc.selectFirst(titleSelector).ownText(),
                             doc.selectFirst(authorSelector).ownText(), 
                             cleanWithNewlines(doc.selectFirst(contentSelector)),
                             url,
@@ -178,6 +184,6 @@ public class LyricsClient
     
     private String cleanWithNewlines(Element element)
     {
-        return Jsoup.clean(Jsoup.clean(element.html(), newlineWhitelist), "", Whitelist.none(), noPrettyPrint);
+        return Jsoup.clean(Jsoup.clean(element.html(), newlineWhitelist), "", Safelist.none(), noPrettyPrint);
     }
 }
