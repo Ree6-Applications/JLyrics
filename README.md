@@ -1,8 +1,8 @@
-[![Download](https://jitpack.io/v/jagrosh/JLyrics.svg)](https://jitpack.io/#jagrosh/JLyrics/master-SNAPSHOT)
-[![Stars](https://img.shields.io/github/stars/jagrosh/JLyrics.svg)](https://github.com/jagrosh/JLyrics/stargazers)
-[![License](https://img.shields.io/github/license/jagrosh/JLyrics.svg)](https://github.com/jagrosh/JLyrics/blob/master/LICENSE)
-[![CodeFactor](https://www.codefactor.io/repository/github/jagrosh/jlyrics/badge)](https://www.codefactor.io/repository/github/jagrosh/jlyrics)
-[![Build status](https://ci.appveyor.com/api/projects/status/7gyee0nnox0y4756?svg=true)](https://ci.appveyor.com/project/jagrosh/jlyrics)
+[![Download](https://jitpack.io/v/Ree6-Applications/JLyrics.svg)](https://jitpack.io/#Ree6-Applications/JLyrics/master-SNAPSHOT)
+[![Stars](https://img.shields.io/github/stars/Ree6-Applications/JLyrics.svg)](https://github.com/Ree6-Applications/JLyrics/stargazers)
+[![License](https://img.shields.io/github/license/Ree6-ApplicationsRee6-Applications/JLyrics.svg)](https://github.com/Ree6-Applications/JLyrics/blob/master/LICENSE)
+[![CodeFactor](https://www.codefactor.io/repository/github/Ree6-Applications/jlyrics/badge)](https://www.codefactor.io/repository/github/Ree6-Applications/jlyrics)
+[![Build status](https://ci.appveyor.com/api/projects/status/7gyee0nnox0y4756?svg=true)](https://ci.appveyor.com/project/Ree6-Applications/jlyrics)
 
 # JLyrics  
 🎼 Expandable lyrics-scraping API for Java
@@ -29,15 +29,15 @@ System.out.println(lyrics.getContent()); // As he came into the window ...
 ## Maven Setup
 ```xml
 <repository>
-		  <id>jitpack.io</id>
-	   <url>https://jitpack.io</url>
+   <id>jitpack.io</id>
+   <url>https://jitpack.io</url>
 </repository>
 ```
 
 ```xml
 <dependency>
-	   <groupId>com.github.jagrosh</groupId>
-	   <artifactId>JLyrics</artifactId>
-	   <version>master-SNAPSHOT</version>
+   <groupId>com.github.Ree6-Applications</groupId>
+   <artifactId>JLyrics</artifactId>
+   <version>master-SNAPSHOT</version>
 </dependency>
 ```
