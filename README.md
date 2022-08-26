@@ -36,7 +36,7 @@ System.out.println(lyrics.getContent()); // As he came into the window ...
 
 ```xml
 <dependency>
-   <groupId>com.github.Ree6-Applications</groupId>
+   <groupId>de.ree6</groupId>
    <artifactId>JLyrics</artifactId>
    <version>master-SNAPSHOT</version>
 </dependency>
